@@ -10,12 +10,16 @@ define("LOG", "root"); // Identifiant connexion
 define("MDP", ""); // Mot de passe 
 
 // Permet la connexion à la base de données
+function connect() {
 try
     {
-    	$bdd = new PDO('mysql:host='. SERVBD .'; dbname='. DBNAME .'; charset=utf8 ', LOG, MDP); // On tente la connexion
+		$pdoOptions = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+    	$connect = new PDO('mysql:host='. SERVBD .'; dbname='. DBNAME, LOG, MDP, $pdoOptions); // On tente la connexion
+		$connect->exec("set names utf8");
     } catch(Exception $e) 
     	{
 			die('Erreur : '.$e->getMessage()); // En cas d'erreur, on termine la connexion et affiche le message de debug error
 		}
 
+}
  ?>

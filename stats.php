@@ -3,14 +3,6 @@
 	include ('menu.html');
 	include('fonctions.php');
 
-	    try
-    	{
-    		$bdd = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
-    	} catch(Exception $e) 
-    		{
-				die('Erreur : '.$e->getMessage());
-			}
-
 	$idM=$_POST['idm'];
 	$requete=$bdd->query("SELECT nomB, emplacement, nomV, matchs.idM
 						FROM buvette, matchs, volontaire, estouverte

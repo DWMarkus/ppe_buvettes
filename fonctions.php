@@ -1,14 +1,10 @@
 <?php
+include_once('connect.php');
+
 /* Fonction qui permet d'afficher les matchs */
 function AfficheMatch()
 {
-	    try
-    	{
-    		$bdd = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
-    	} catch(Exception $e) 
-    		{
-				die('Erreur : '.$e->getMessage());
-			}
+	$bdd = connect();
 
 		$requeteC = $bdd->query("SELECT count(distinct(estouverte.idB)) AS nbB
 								FROM estouverte, matchs
