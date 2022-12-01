@@ -1,3 +1,36 @@
+
+INSERT INTO volontaire (idV, nomV, naissance) VALUES
+(1, 'Belva Lindgren', '1990-08-15'),
+(2, 'Yandel Spinka', '1976-01-20'),
+(3, 'Mr. Wilburn Greenfelder', '1971-04-10'),
+(4, 'Willie Kris', '1978-02-01'),
+(5, 'Carson Runte', '2002-12-14'),
+(6, 'Miss Ica Kassulke DDS', '1981-07-25'),
+(7, 'Amado Pollich', '1970-05-04'),
+(8, 'Santo Homenick', '1977-11-29'),
+(9, 'Lilliana Gutmann', '2002-09-13'),
+(10, 'Yaritza Dickinson', '2004-12-30'),
+(11, 'Ally Kirlin', '1994-02-17'),
+(12, 'Kash Halvorson', '2003-10-10'),
+(13, 'Miss Valentina Berge', '1986-07-22'),
+(14, 'Danniel Reinger', '1980-09-04'),
+(15, 'Mrs. Ilene Murphy PhD', '2003-05-19'),
+(16, 'Dr. Odis Sauer', '1980-02-19'),
+(17, 'Missy Boehm', '1973-08-11'),
+(18, 'Chanda Bergstrom', '1975-12-02'),
+(19, 'Dink Walter PhD', '1983-07-25'),
+(20, 'Dr. Cap Olson PhD', '1983-04-21'),
+(21, 'Vernelle Kuhn', '1985-06-20'),
+(22, 'Betha Hudson', '1974-04-19'),
+(23, 'Riley Spencer', '2003-09-09'),
+(24, 'Mrs. Lucile Smith', '2000-12-19'),
+(25, 'Ms. Fleta Weber', '1991-12-10'),
+(26, 'Joesph Gutkowski', '1994-08-29'),
+(27, 'Treena Romaguera', '1974-03-20'),
+(28, 'Vita Monahan', '1973-05-09'),
+(29, 'Kia Bernier', '1976-07-25'),
+(30, 'Destry Jaskolski', '1983-11-05');
+
 INSERT INTO buvette (idB, nomB, emplacement, responsable) VALUES
 (1, 'bsmey', 'Stade de Lorraine', 23),
 (2, 'cavwv', 'Stade de Lorraine', 20),
@@ -70,6 +103,18 @@ INSERT INTO equipe (idE, pays, drapeau) VALUES
 ('su', 'SUEDE', 'img/su.png'),
 ('tu', 'TURQUIE', 'img/tu.png'),
 ('uk', 'UKRAINE', 'img/uk.png');
+
+INSERT INTO matchs (idM, dateM, eqA, eqB, scoreA, scoreB) VALUES
+(1, '2016-06-10', 'fr', 'ro', NULL, NULL),
+(2, '2016-06-11', 'alb', 'su', NULL, NULL),
+(3, '2016-06-11', 'ga', 'sl', NULL, NULL),
+(4, '2016-06-11', 'an', 'ru', NULL, NULL),
+(5, '2016-06-12', 'tu', 'cr', NULL, NULL),
+(6, '2016-06-12', 'po', 'ir', NULL, NULL),
+(7, '2016-06-12', 'al', 'uk', NULL, NULL),
+(8, '2016-06-13', 'es', 'rt', NULL, NULL),
+(9, '2016-06-13', 'ir', 'su', NULL, NULL),
+(10, '2016-06-13', 'be', 'it', NULL, NULL);
 
 INSERT INTO estouverte (idB, idM) VALUES
 (1, 1),
@@ -231,34 +276,3 @@ INSERT INTO matchs (idM, dateM, eqA, eqB, scoreA, scoreB) VALUES
 (9, '2016-06-13', 'ir', 'su', NULL, NULL),
 (10, '2016-06-13', 'be', 'it', NULL, NULL);
 
-INSERT INTO volontaire (idV, nomV, naissance) VALUES
-(1, 'Belva Lindgren', '1990-08-15'),
-(2, 'Yandel Spinka', '1976-01-20'),
-(3, 'Mr. Wilburn Greenfelder', '1971-04-10'),
-(4, 'Willie Kris', '1978-02-01'),
-(5, 'Carson Runte', '2002-12-14'),
-(6, 'Miss Ica Kassulke DDS', '1981-07-25'),
-(7, 'Amado Pollich', '1970-05-04'),
-(8, 'Santo Homenick', '1977-11-29'),
-(9, 'Lilliana Gutmann', '2002-09-13'),
-(10, 'Yaritza Dickinson', '2004-12-30'),
-(11, 'Ally Kirlin', '1994-02-17'),
-(12, 'Kash Halvorson', '2003-10-10'),
-(13, 'Miss Valentina Berge', '1986-07-22'),
-(14, 'Danniel Reinger', '1980-09-04'),
-(15, 'Mrs. Ilene Murphy PhD', '2003-05-19'),
-(16, 'Dr. Odis Sauer', '1980-02-19'),
-(17, 'Missy Boehm', '1973-08-11'),
-(18, 'Chanda Bergstrom', '1975-12-02'),
-(19, 'Dink Walter PhD', '1983-07-25'),
-(20, 'Dr. Cap Olson PhD', '1983-04-21'),
-(21, 'Vernelle Kuhn', '1985-06-20'),
-(22, 'Betha Hudson', '1974-04-19'),
-(23, 'Riley Spencer', '2003-09-09'),
-(24, 'Mrs. Lucile Smith', '2000-12-19'),
-(25, 'Ms. Fleta Weber', '1991-12-10'),
-(26, 'Joesph Gutkowski', '1994-08-29'),
-(27, 'Treena Romaguera', '1974-03-20'),
-(28, 'Vita Monahan', '1973-05-09'),
-(29, 'Kia Bernier', '1976-07-25'),
-(30, 'Destry Jaskolski', '1983-11-05');

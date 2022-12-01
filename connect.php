@@ -3,7 +3,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 
 // On initialise les variables de connexion
 define("SERVBD", "localhost"); // Serveur de connection (e.g: 127.0.0.1, localhost ou adresse IP serveur)
-define("DBNAME", "BUVETTES"); // Base de données cible
+define("DBNAME", "buv"); // Base de données cible
 
 // Uniquement en environnement 'dev'
 define("LOG", "root"); // Identifiant connexion

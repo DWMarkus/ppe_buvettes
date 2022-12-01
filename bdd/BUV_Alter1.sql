@@ -2,7 +2,6 @@
 -- Index pour la table Buvette
 --
 ALTER TABLE Buvette
-  ADD PRIMARY KEY (idB),
   ADD KEY fk_buvette_responsable (responsable);
 
 --

@@ -4,25 +4,31 @@ include_once('connect.php');
 /* Fonction qui permet d'afficher les matchs */
 function AfficheMatch()
 {
-	$bdd = connect();
+	try
+	{
+		$connect = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
+	} catch(Exception $e) 
+		{
+			die('Erreur : '.$e->getMessage());
+		}
 
-		$requeteC = $bdd->query("SELECT count(distinct(estouverte.idB)) AS nbB
+		$requeteC = $connect->query("SELECT count(distinct(estouverte.idB)) AS nbB
 								FROM estouverte, matchs
 								WHERE estouverte.idM = matchs.idM
 								GROUP BY matchs.idM");
 
-		$requeteD = $bdd->query("SELECT count(distinct(estpresent.idV)) AS nbV
+		$requeteD = $connect->query("SELECT count(distinct(estpresent.idV)) AS nbV
 								FROM matchs, estpresent
 								WHERE estpresent.idM = matchs.idM
 								GROUP BY matchs.idM");
 
-	$requeteA=$bdd->query("SELECT drapeau, pays, scoreA, eqA, idM
-							FROM equipe, matchs
-							WHERE matchs.eqA = equipe.idE");
+		$requeteA=$connect->query("SELECT drapeau, pays, scoreA, eqA, idM
+								FROM equipe, matchs
+								WHERE matchs.eqA = equipe.idE");
 
-	$requeteB=$bdd->query("SELECT drapeau, pays, scoreB, eqB
-							FROM equipe, matchs
-							WHERE matchs.eqB = equipe.idE");	
+		$requeteB=$connect->query("SELECT drapeau, pays, scoreB, eqB
+								FROM equipe, matchs
+								WHERE matchs.eqB = equipe.idE");	
 ?>
 	<center>
 		<caption><h3>Listes des matchs</h3></caption>
@@ -64,13 +70,13 @@ function AfficheVolontaire()
 {
 	    try
     	{
-    		$bdd = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
+    		$connect = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
     	} catch(Exception $e) 
     		{
 				die('Erreur : '.$e->getMessage());
 			}
 
-	$requete = $bdd->query("SELECT count(distinct(estpresent.idM)) AS nbV, nomV, naissance 
+	$requete = $connect->query("SELECT count(distinct(estpresent.idM)) AS nbV, nomV, naissance 
 							FROM volontaire, estpresent, matchs
         					WHERE estpresent.idM = matchs.idM
         					AND estpresent.idV = volontaire.idV
@@ -111,13 +117,13 @@ function AfficheBuvette()
 {
 	    try
     	{
-    		$bdd = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
+    		$connect = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
     	} catch(Exception $e) 
     		{
 				die('Erreur : '.$e->getMessage());
 			}
 
-	$requete=$bdd->query("SELECT nomB, emplacement, count(distinct(estpresent.idV)) as nb
+	$requete=$connect->query("SELECT nomB, emplacement, count(distinct(estpresent.idV)) as nb
 							FROM buvette, estouverte, estpresent
         					WHERE buvette.idB = estouverte.idB
         					AND estpresent.idB = estouverte.idB
@@ -155,17 +161,17 @@ function StatsMatch()
 {
 	    try
     	{
-    		$bdd = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
+    		$connect = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
     	} catch(Exception $e) 
     		{
 				die('Erreur : '.$e->getMessage());
 			}
 
-	$requete=$bdd->query("SELECT idM, drapeau, pays, scoreA, eqA
+	$requete=$connect->query("SELECT idM, drapeau, pays, scoreA, eqA
 		FROM equipe, matchs
 		WHERE matchs.eqA = equipe.idE");
 
-	$requeteB=$bdd->query("SELECT idM, drapeau, pays, scoreB, eqB
+	$requeteB=$connect->query("SELECT idM, drapeau, pays, scoreB, eqB
 		FROM equipe, matchs
 		 WHERE matchs.eqB = equipe.idE");
 ?>
@@ -209,17 +215,17 @@ function matchA()
 {
 	    try
     	{
-    		$bdd = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
+    		$connect = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
     	} catch(Exception $e) 
     		{
 				die('Erreur : '.$e->getMessage());
 			}
 
-	$requete=$bdd->query("SELECT idM, drapeau, pays, scoreA, eqA
+	$requete=$connect->query("SELECT idM, drapeau, pays, scoreA, eqA
 		FROM equipe, matchs
 		WHERE matchs.eqA = equipe.idE");
 
-	$requeteB=$bdd->query("SELECT idM, drapeau, pays, scoreB, eqB
+	$requeteB=$connect->query("SELECT idM, drapeau, pays, scoreB, eqB
 		FROM equipe, matchs
 		 WHERE matchs.eqB = equipe.idE");
 ?>
@@ -271,17 +277,17 @@ function matchB()
 {
 	    try
     	{
-    		$bdd = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
+    		$connect = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
     	} catch(Exception $e) 
     		{
 				die('Erreur : '.$e->getMessage());
 			}
 
-	$requete=$bdd->query("SELECT idM, drapeau, pays, scoreA, eqA
+	$requete=$connect->query("SELECT idM, drapeau, pays, scoreA, eqA
 		FROM equipe, matchs
 		WHERE matchs.eqA = equipe.idE");
 
-	$req=$bdd->query("SELECT idM, drapeau, pays, scoreB, eqB
+	$req=$connect->query("SELECT idM, drapeau, pays, scoreB, eqB
 		FROM equipe, matchs
 		 WHERE matchs.eqB = equipe.idE");
 ?>
@@ -334,17 +340,17 @@ function matchC()
 
 	    try
     	{
-    		$bdd = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
+    		$connect = new PDO('mysql:host=localhost;dbname=buv;charset=utf8', 'root', '');
     	} catch(Exception $e) 
     		{
 				die('Erreur : '.$e->getMessage());
 			}
 			
-	$requete=$bdd->query("SELECT idM, drapeau, pays, scoreA, eqA
+	$requete=$connect->query("SELECT idM, drapeau, pays, scoreA, eqA
 		FROM equipe, matchs
 		WHERE matchs.eqA = equipe.idE");
 
-	$req=$bdd->query("SELECT idM, drapeau, pays, scoreB, eqB
+	$req=$connect->query("SELECT idM, drapeau, pays, scoreB, eqB
 		FROM equipe, matchs
 		 WHERE matchs.eqB = equipe.idE");
 
