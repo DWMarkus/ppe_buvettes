@@ -63,7 +63,7 @@ ul#menu_horizontal
 
 ul#menu_horizontal, a:hover 
 {
-  background-color: ##6495ED;
+  background-color: #6495ED;
   color: white;
 }
 
@@ -76,5 +76,3 @@ ul#menu_horizontal, a:hover
 {
 	line-height: 175px;
 }
-
-#tableau
